@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Galeria de Viagens{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8fafc;
+    }
+    h1, h2 {
+        font-family: 'Playfair Display', serif;
+    }
+
+    {% block extra_style %}
+    {% endblock %}
+    
+</style>
+</head>
+<body>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer class="bg-[#0f4c75] text-white py-6 mt-12 shadow-inner">
+        <div class="container mx-auto text-center">
+            <p class="text-blue-200">&copy; 2025 Galeria de Viagens | Desenvolvido por Kaiki Medeiros.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

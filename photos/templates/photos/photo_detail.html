@@ -1,58 +1,40 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ photo.title }} - Detalhes</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-        }
-        h1 {
-            font-family: 'Playfair Display', serif;
-        }
-    </style>
-</head>
-<body>
-    <div class="container mx-auto px-4 py-12">
-        <a href="{% url 'photo_list' %}" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold mb-8 text-lg transition-colors">
-            <i class="fas fa-arrow-left mr-2"></i> Voltar para a Galeria
-        </a>
+{% extends "photo_base.html" %}
 
-        <div class="max-w-6xl mx-auto bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-100">
-            {% if photo.image %}
-                <img src="{{ photo.image.url }}" alt="{{ photo.title }}" class="w-full object-cover max-h-[70vh] shadow-inner">
-            {% endif %}
-            <div class="p-10 lg:p-12">
-                <h1 class="text-5xl font-bold text-gray-800 mb-4">{{ photo.title }}</h1>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-lg text-gray-700 mb-8 pb-8 border-b border-gray-200">
-                    <div class="flex items-center">
-                        <i class="fas fa-globe-americas text-blue-500 mr-3 text-xl"></i>
-                        <span class="font-medium">Local:</span> {{ photo.location }}
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-calendar-alt text-orange-500 mr-3 text-xl"></i>
-                        <span class="font-medium">Data da Viagem:</span> {{ photo.date|date:"d/m/Y" }}
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-cloud-upload-alt text-green-500 mr-3 text-xl"></i>
-                        <span class="font-medium">Publicado:</span> {{ photo.published_at|date:"d/m/Y H:i" }} ({{ photo.published_at|timesince }} atrás)
-                    </div>
+{% block title %}{{ photo.title }} - Detalhes{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-12">
+    <a href="{% url 'photo_list' %}" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold mb-8 text-lg transition-colors">
+        <i class="fas fa-arrow-left mr-2"></i> Voltar para a Galeria
+    </a>
+
+    <div class="max-w-6xl mx-auto bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-100">
+        {% if photo.image %}
+            <img src="{{ photo.image.url }}" alt="{{ photo.title }}" class="w-full object-cover max-h-[70vh] shadow-inner">
+        {% endif %}
+        <div class="p-10 lg:p-12">
+            <h1 class="text-5xl font-bold text-gray-800 mb-4">{{ photo.title }}</h1>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-lg text-gray-700 mb-8 pb-8 border-b border-gray-200">
+                <div class="flex items-center">
+                    <i class="fas fa-globe-americas text-blue-500 mr-3 text-xl"></i>
+                    <span class="font-medium">Local:</span> {{ photo.location }}
                 </div>
-                
-                <h2 class="text-3xl font-bold text-gray-800 mb-5 border-b pb-3 border-gray-200">Sobre a Viagem</h2>
-                <div class="text-lg text-gray-800 leading-relaxed mt-4 prose max-w-none">
-                    <p>{{ photo.description|linebreaksbr }}</p>
+                <div class="flex items-center">
+                    <i class="fas fa-calendar-alt text-orange-500 mr-3 text-xl"></i>
+                    <span class="font-medium">Data da Viagem:</span> {{ photo.date|date:"d/m/Y" }}
                 </div>
+                <div class="flex items-center">
+                    <i class="fas fa-cloud-upload-alt text-green-500 mr-3 text-xl"></i>
+                    <span class="font-medium">Publicado:</span> {{ photo.published_at|date:"d/m/Y H:i" }} ({{ photo.published_at|timesince }} atrás)
+                </div>
+            </div>
+            
+            <h2 class="text-3xl font-bold text-gray-800 mb-5 border-b pb-3 border-gray-200">Sobre a Viagem</h2>
+            <div class="text-lg text-gray-800 leading-relaxed mt-4 prose max-w-none">
+                <p>{{ photo.description|linebreaksbr }}</p>
             </div>
         </div>
     </div>
-</body>
-</html>
+</div>
+{% endblock %}
