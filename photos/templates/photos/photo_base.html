@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,7 +15,7 @@
         font-family: 'Inter', sans-serif;
         background-color: #f8fafc;
     }
-    h1, h2 {
+    h1, h2, .header-title {
         font-family: 'Playfair Display', serif;
     }
 
@@ -23,10 +24,28 @@
     
 </style>
 </head>
-<body>
+<body class="bg-gray-100">
 
-    {% block content %}
-    {% endblock %}
+    <header class="bg-gray-900 text-white p-6 shadow-lg rounded-b-lg">
+        <div class="container mx-auto flex items-center justify-between">
+            <div class="flex items-center">
+                <i class="fas fa-camera-retro text-4xl mr-4"></i>
+                <h1 class="text-4xl font-bold header-title">Galeria de Viagens</h1>
+            </div>
+            <nav class="flex space-x-6 text-lg">
+                <a href="{% url 'photo_list' %}" class="text-gray-300 hover:text-white flex items-center gap-2">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="{% url 'photo_sobre_nos' %}" class="text-gray-300 hover:text-white">Sobre Nós</a>
+                <a href="{% url 'photo_contato' %}" class="text-gray-300 hover:text-white">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto mt-8">
+        {% block content %}
+        {% endblock %}
+    </main>
 
     <footer class="bg-[#0f4c75] text-white py-6 mt-12 shadow-inner">
         <div class="container mx-auto text-center">

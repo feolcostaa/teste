@@ -1,0 +1,37 @@
+{% extends 'photos/photo_base.html' %}
+
+{% block title %}Sobre Nós - Galeria de Viagens{% endblock %}
+
+{% block content %}
+<div class="container mx-auto mt-8 p-4">
+    <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+
+        <div class="p-10 text-center bg-gray-50">
+            <h1 class="text-5xl font-extrabold text-gray-900 mb-4">Sobre a Galeria de Viagens</h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                Bem-vindo à nossa **Galeria de Viagens**! Nossa paixão é explorar o mundo e nossa missão é compartilhar a beleza e as histórias de cada destino através da fotografia.
+            </p>
+        </div>
+
+        <div class="p-8 lg:p-12 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="text-gray-700 space-y-4">
+                <h2 class="text-3xl font-bold text-gray-900">Nossa Paixão, Nossa Missão</h2>
+                <p>Acreditamos que cada fotografia conta uma história e tem o poder de transportar, inspirar e conectar pessoas. É por isso que criamos este espaço: para ser uma janela para o mundo e um arquivo de memórias preciosas.</p>
+                <p>Aqui, você encontrará uma vasta coleção de fotos cuidadosamente selecionadas que capturam a essência de diversos lugares. De paisagens urbanas vibrantes a cenários naturais de tirar o fôlego, cada imagem é um convite para uma nova aventura.</p>
+            </div>
+            <div class="text-center">
+                <img src="https://images.unsplash.com/photo-1527632911563-ee5b6d5344b6?q=80&w=1887&auto=format&fit=crop" 
+                     alt="Fotógrafo de viagens" class="rounded-xl shadow-lg w-full h-auto object-cover">
+            </div>
+        </div>
+
+        <div class="p-8 lg:p-12 text-center bg-blue-50">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Junte-se à Nossa Jornada</h2>
+            <p class="text-gray-600 mb-6 max-w-3xl mx-auto">Explore nossas galerias, reviva suas próprias viagens ou sonhe com as próximas. Vamos juntos embarcar nesta jornada visual, onde cada clique é uma nova descoberta e cada álbum é um novo horizonte.</p>
+            <a href="{% url 'photo_list' %}"
+                class="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-700 
+                transition-colors duration-300 transform hover:-translate-y-1">Explore a Galeria</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
